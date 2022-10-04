@@ -1,6 +1,21 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { CrudConfigService } from '@nestjsx/crud';
 
+CrudConfigService.load({
+  query: {
+    limit: 25,
+    cache: 2000,
+  },
+  params: {
+    id: {
+      field: 'id',
+      type: 'uuid',
+      primary: true,
+    },
+  },
+});
+
+import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);

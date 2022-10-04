@@ -10,6 +10,7 @@ import { Category } from './category/category.entity';
 import { Product } from './product/product.entity';
 import { Slider } from './slider/slider.entity';
 import { Notification } from './notification/notification.entity';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { Notification } from './notification/notification.entity';
       // For dev purposes, not to be used with production
       synchronize: true,
     }),
+    EventEmitterModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],
