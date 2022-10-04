@@ -6,6 +6,10 @@ import { NotificationModule } from './notification/notification.module';
 import { SliderModule } from './slider/slider.module';
 import { CategoryModule } from './category/category.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Category } from './category/category.entity';
+import { Product } from './product/product.entity';
+import { Slider } from './slider/slider.entity';
+import { Notification } from './notification/notification.entity';
 
 @Module({
   imports: [
@@ -20,7 +24,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'postgres',
       password: '123123',
       database: 'staytuned',
-      entities: [],
+      entities: [Category, Product, Notification, Slider],
       // For dev purposes, not to be used with production
       synchronize: true,
     }),
