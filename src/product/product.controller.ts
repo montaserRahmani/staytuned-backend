@@ -7,6 +7,14 @@ import { ProductService } from './product.service';
   model: {
     type: Product,
   },
+  query: {
+    exclude: ['id'],
+    join: {
+      category: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('product')
 export class ProductController implements CrudController<Product> {
