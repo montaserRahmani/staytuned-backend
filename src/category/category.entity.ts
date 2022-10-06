@@ -1,5 +1,6 @@
 import { BaseAuditedEntity } from 'src/common/base.entity';
-import { Entity, Column } from 'typeorm';
+import { Product } from 'src/product/product.entity';
+import { Entity, Column, OneToMany } from 'typeorm';
 
 @Entity()
 export class Category extends BaseAuditedEntity {
@@ -11,4 +12,7 @@ export class Category extends BaseAuditedEntity {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(() => Product, (product) => product.category)
+  products: Product[];
 }
