@@ -30,9 +30,7 @@ export class PriceSubscriber implements EntitySubscriberInterface<Product> {
       // if the price was update check whether the new price is less the old price with 1 unit or more
       if (event.entity['price'] <= event.databaseEntity.price - 1) {
         // Emit the event for price update to be handled by the listeners
-        this.emitter.emit('product.priceUpdated', {
-          productId: event.databaseEntity.id,
-        });
+        this.emitter.emit('product.priceUpdated', event.databaseEntity.id);
       }
 
     }
