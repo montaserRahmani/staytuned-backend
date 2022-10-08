@@ -32,7 +32,7 @@ const authenticate = async (email: string, password: string) => {
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     ProductModule,
     CategoryModule,
     SliderModule,
